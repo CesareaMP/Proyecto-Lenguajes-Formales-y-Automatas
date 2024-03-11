@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proyecto Lenguajes Formales y Automatas", "Proyecto Lenguajes Formales y Automatas\Proyecto Lenguajes Formales y Automatas.csproj", "{B1AF083A-7BB7-41F6-8589-7D6B9D34949C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1AF083A-7BB7-41F6-8589-7D6B9D34949C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1AF083A-7BB7-41F6-8589-7D6B9D34949C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1AF083A-7BB7-41F6-8589-7D6B9D34949C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1AF083A-7BB7-41F6-8589-7D6B9D34949C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBB1FCBB-E18D-415A-B0DD-CBECA9183069}
+	EndGlobalSection
+EndGlobal
