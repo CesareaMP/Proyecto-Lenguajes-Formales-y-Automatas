@@ -22,7 +22,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         private void Form1_Load(object sender, EventArgs e)
         {
             //momazos
-            {/*
+            {
               List<Node> nodeList = new List<Node>()
             //examples generation
             {
@@ -62,7 +62,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                     Console.WriteLine(node.GetSname() + "," + node.GetLtransitions().Count + "," + node.GetBfinal_state());
                 }
             }
-              */
+                Console.WriteLine(Convert.ToString(momo.BinarySearch(MergedList, "M")));
             }
 
         }

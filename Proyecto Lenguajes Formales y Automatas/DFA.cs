@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -65,6 +66,38 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         {
             return key1.CompareTo(key2) > 0;
         }
+
+        public int BinarySearch(List<Node> nodes, string key)
+        {
+            if (nodes.Count == 0)
+            {
+                return -1;
+            }
+
+            int low = 0;
+            int high = nodes.Count - 1;
+
+            while (low <= high)
+            {
+                int mid = (low + high) / 2;
+                int comparisonResult = string.Compare(key, nodes[mid].GetSname());
+
+                if (comparisonResult == 0)
+                {
+                    return mid;
+                }
+                else if (comparisonResult < 0)
+                {
+                    high = mid - 1;
+                }
+                else
+                {
+                    low = mid + 1;
+                }
+            }
+            return -1;
+        }
+
 
 
     }
