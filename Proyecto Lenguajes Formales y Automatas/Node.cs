@@ -9,7 +9,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
     internal class Node : IComparable<Node>
     {
         private string Sname;
-        private List<Transition> Ltransitions;
+        private List<Transition> Ltransitions = new List<Transition>();
         private Boolean Bfinal_state;
 
         public Node(string name, List<Transition> transitions, Boolean finalstate)
@@ -27,6 +27,11 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         public void SetLtransitions(List<Transition> transitions)
         {
             this.Ltransitions = transitions;
+        }
+
+        public void AddLtransitions(Transition transition)
+        {
+            this.Ltransitions.Add(transition);
         }
 
         public void SetBfinal_state(Boolean final_state)

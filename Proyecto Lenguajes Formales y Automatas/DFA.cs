@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Hosting;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,6 +14,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
     internal class DFA
     {
         private List<Node> Lnodes = new List<Node>();
+        private List<string> Llanguage = new List<string>();
         private string Sinitial_node;
 
         public DFA() { }
@@ -27,10 +29,10 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                 this.Sinitial_node = streamReader.ReadLine();//estado inicial
                 string finalstates = streamReader.ReadLine();//estados finales
 
-                while (amount > 0) {
-                    this.Lnodes.Add(new Node());
-                    amount--;
-                }                
+                for (int i = 1; i <= amount; i++)
+                {
+                    this.Lnodes.Add(new Node(Convert.ToString(i),new List<Transition>(), false));
+                }
 
                 List<Transition> transitions = new List<Transition>();
                 string linea;
@@ -42,12 +44,26 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
                 transitions = MergeSort(transitions);
 
+                this.Llanguage = ObtainLanguage(transitions);
                 PairTransitions(this.Lnodes, transitions);
                 SetFinalStates(this.Lnodes, finalstates);
 
                 streamReader.Close();
                 
             }
+        }
+ 
+        private List<string> ObtainLanguage(List<Transition> transitions)
+        {
+            List<string> language = new List<string>();
+            for (int i = 0; i < transitions.Count; i++)
+            {
+                if (!language.Contains(transitions[i].GetSymbol()))
+                {
+                    language.Add(transitions[i].GetSymbol());
+                }
+            }
+            return language;
         }
 
         private void SetFinalStates(List<Node> lnodes, string finalstates)
@@ -61,20 +77,13 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
         private void PairTransitions(List<Node> lnodes, List<Transition> transitions)
         {
-            int contador = 0;
-            string actual = transitions[0].GetStateOrigin();
-
-            while (transitions[contador].GetStateOrigin() == actual)
+            int contador = this.Llanguage.Count;
+            string actual = Regex.Replace(transitions[0].GetStateOrigin(), @"\s", "");
+           
+            for (int i = 0; i < transitions.Count; i++)
             {
-                contador++;
-            }
-            
-            int amountnodes = lnodes.Count;
-
-            for (int i = 0; i < amountnodes; i++)
-            {
-                lnodes[i].SetSname(transitions[i*contador].GetStateOrigin());
-                lnodes[i].SetLtransitions(transitions.GetRange(i*contador,contador));
+                int index = BinarySearch<Node>(lnodes, new Node(Regex.Replace(transitions[i].GetStateOrigin(), @"\s", ""), null,false));
+                lnodes[index].AddLtransitions(transitions[i]);
             }
 
         }

@@ -67,7 +67,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
              }
              */
             
-            momo.ReadFile("D:\\Desktop\\AFD.txt");
+            momo.ReadFile("D:\\Desktop\\DFA.txt");
 
         }
     }
