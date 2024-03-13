@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Proyecto_Lenguajes_Formales_y_Automatas
 {
@@ -14,15 +16,40 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
         public DFA() { }
 
-        public List<Node> MergeSort(List<Node> nodes)
+        private void ReadFile(string path)
+        {
+            const Int32 BufferSize = 128;
+            using (var fileStream = File.OpenRead(path))
+            using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
+            {                    
+                int amount = Convert.ToInt32(streamReader.ReadLine());//cantidad de estados
+                this.Sinitial_node = streamReader.ReadLine();//estado inicial
+                string finalstates = streamReader.ReadLine();//estados finales
+
+                while (amount > 0) {
+                    this.Lnodes.Add(new Node());
+                    amount--;
+                }
+
+                List<(string Sstate_origin, string Ssymbol, string Sstate_destiny)> transitions = new List<(string Strans_name, string Ssymbol, string Sstate_destiny)>();
+
+                while (streamReader.ReadLine() != null)
+                {
+
+                }
+
+            }
+        }
+
+        public List<T> MergeSort<T>(List<T> nodes) where T : IComparable<T>
         {
             if (nodes.Count == 1)
             {
                 return nodes;
             }
             int half = (int)Math.Round(nodes.Count / 2.0);
-            List<Node> Lsplited_list1 = nodes.GetRange(0, half);
-            List<Node> Lsplited_list2 = nodes.GetRange(half, (nodes.Count - half));
+            List<T> Lsplited_list1 = nodes.GetRange(0, half);
+            List<T> Lsplited_list2 = nodes.GetRange(half, (nodes.Count - half));
 
             Lsplited_list1 = MergeSort(Lsplited_list1);
             Lsplited_list2 = MergeSort(Lsplited_list2);
@@ -30,12 +57,12 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             return Merge(Lsplited_list1, Lsplited_list2);
         }
 
-        private List<Node> Merge(List<Node> Lsplited_list1, List<Node> Lsplited_list2)
+        private List<T> Merge<T>(List<T> Lsplited_list1, List<T> Lsplited_list2) where T : IComparable<T> 
         {
-            List<Node> MergedList = new List<Node>();
+            List<T> MergedList = new List<T>();
 
             while (Lsplited_list1.Count != 0 && Lsplited_list2.Count != 0) {
-                if (Compare(Lsplited_list1[0].GetSname(), Lsplited_list2[0].GetSname())>0)
+                if (Lsplited_list1[0].CompareTo(Lsplited_list2[0])>0)
                 {
                     MergedList.Add(Lsplited_list2[0]);
                     Lsplited_list2.RemoveAt(0);
@@ -62,7 +89,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             return MergedList;
         }
 
-        public int BinarySearch(List<Node> nodes, string key)
+        public int BinarySearch<T>(List<T> nodes, T key) where T : IComparable<T>   
         {
             if (nodes.Count == 0)
             {
@@ -75,13 +102,13 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             while (low <= high)
             {
                 int mid = (low + high) / 2;
-                int comparisonResult = Compare(key, nodes[mid].GetSname());
+                int comparisonResult = nodes[mid].CompareTo(key);
 
                 if (comparisonResult == 0)
                 {
                     return mid;
                 }
-                else if (comparisonResult < 0)
+                else if (comparisonResult > 0)
                 {
                     high = mid - 1;
                 }
@@ -91,37 +118,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                 }
             }
             return -1;
-        }
-
-        private int Compare(string x, string y)
-        {
-            // Parse numbers from strings
-            string[] xParts = System.Text.RegularExpressions.Regex.Split(x, @"(\d+)");
-            string[] yParts = System.Text.RegularExpressions.Regex.Split(y, @"(\d+)");
-
-            for (int i = 0; i < Math.Min(xParts.Length, yParts.Length); i++)
-            {
-                // If both parts are numeric, parse and compare numerically
-                int xNum, yNum;
-                if (int.TryParse(xParts[i], out xNum) && int.TryParse(yParts[i], out yNum))
-                {
-                    int comparison = xNum.CompareTo(yNum);
-                    if (comparison != 0)
-                        return comparison;
-                }
-                else
-                {
-                    // If either part is not numeric, compare lexically
-                    int comparison = xParts[i].CompareTo(yParts[i]);
-                    if (comparison != 0)
-                        return comparison;
-                }
-            }
-
-            // If all parts are equal, compare the lengths
-            return x.Length.CompareTo(y.Length);
-        }
-
+        }       
 
     }
 }

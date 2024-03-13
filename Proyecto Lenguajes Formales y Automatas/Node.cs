@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Lenguajes_Formales_y_Automatas
 {
-    internal class Node
+    internal class Node : IComparable<Node>
     {
         private string Sname;
-        private List<(string Strans_name, string Ssymbol)> Ltransitions;
+        private List<(string Sstate_origin, string Ssymbol)> Ltransitions;//, string Sstate_destiny
         private Boolean Bfinal_state;
 
         public Node(string name, List<(string, string)> transitions, Boolean finalstate)
@@ -39,7 +39,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             return Sname;
         }
 
-        public List<(string Strans_name, string Ssymbol)> GetLtransitions()
+        public List<(string Sstate_origin, string Ssymbol)> GetLtransitions()//, string Sstate_destiny
         {
             return Ltransitions;
         }
@@ -48,6 +48,39 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         {
             return Bfinal_state;
         }
+            
         public Node() { }
+
+        public int CompareTo(Node other)
+        {
+            // Parse numbers from strings
+            string[] xParts = System.Text.RegularExpressions.Regex.Split(this.Sname, @"(\d+)");
+            string[] yParts = System.Text.RegularExpressions.Regex.Split(other.Sname, @"(\d+)");
+
+            for (int i = 0; i < Math.Min(xParts.Length, yParts.Length); i++)
+            {
+                // If both parts are numeric, parse and compare numerically
+                int xNum, yNum;
+                if (int.TryParse(xParts[i], out xNum) && int.TryParse(yParts[i], out yNum))
+                {
+                    int comparison = xNum.CompareTo(yNum);
+                    if (comparison != 0)
+                        return comparison;
+                }
+                else
+                {
+                    // If either part is not numeric, compare lexically
+                    int comparison = xParts[i].CompareTo(yParts[i]);
+                    if (comparison != 0)
+                        return comparison;
+                }
+            }
+
+            // If all parts are equal, compare the lengths
+            return this.Sname.Length.CompareTo(other.Sname.Length);
+        }
+
+
+
     }
 }
