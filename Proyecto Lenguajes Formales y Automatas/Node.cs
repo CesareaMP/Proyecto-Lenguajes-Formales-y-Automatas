@@ -9,10 +9,10 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
     internal class Node : IComparable<Node>
     {
         private string Sname;
-        private List<(string Sstate_origin, string Ssymbol)> Ltransitions;//, string Sstate_destiny
+        private List<Transition> Ltransitions;
         private Boolean Bfinal_state;
 
-        public Node(string name, List<(string, string)> transitions, Boolean finalstate)
+        public Node(string name, List<Transition> transitions, Boolean finalstate)
         {
             this.Sname = name;
             this.Ltransitions = transitions;
@@ -24,7 +24,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             Sname = name;
         } 
 
-        public void SetLtransitions(List<(string, string)> transitions)
+        public void SetLtransitions(List<Transition> transitions)
         {
             this.Ltransitions = transitions;
         }
@@ -39,7 +39,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             return Sname;
         }
 
-        public List<(string Sstate_origin, string Ssymbol)> GetLtransitions()//, string Sstate_destiny
+        public List<Transition> GetLtransitions()//, string Sstate_destiny
         {
             return Ltransitions;
         }
@@ -80,7 +80,6 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             return this.Sname.Length.CompareTo(other.Sname.Length);
         }
 
-
-
     }
+  
 }

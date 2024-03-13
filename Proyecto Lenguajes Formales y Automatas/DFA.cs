@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Hosting;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,12 +12,12 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 {
     internal class DFA
     {
-        private List<Node> Lnodes;
+        private List<Node> Lnodes = new List<Node>();
         private string Sinitial_node;
 
         public DFA() { }
 
-        private void ReadFile(string path)
+        public void ReadFile(string path)
         {
             const Int32 BufferSize = 128;
             using (var fileStream = File.OpenRead(path))
@@ -29,19 +30,56 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                 while (amount > 0) {
                     this.Lnodes.Add(new Node());
                     amount--;
-                }
+                }                
 
-                List<(string Sstate_origin, string Ssymbol, string Sstate_destiny)> transitions = new List<(string Strans_name, string Ssymbol, string Sstate_destiny)>();
+                List<Transition> transitions = new List<Transition>();
+                string linea;
 
-                while (streamReader.ReadLine() != null)
+                while ((linea = streamReader.ReadLine()) != null)
                 {
-
+                    transitions.Add(new Transition(linea.Split(',')[0], linea.Split(',')[1], linea.Split(',')[2]));
                 }
 
+                transitions = MergeSort(transitions);
+
+                PairTransitions(this.Lnodes, transitions);
+                SetFinalStates(this.Lnodes, finalstates);
+
+                streamReader.Close();
+                
             }
         }
 
-        public List<T> MergeSort<T>(List<T> nodes) where T : IComparable<T>
+        private void SetFinalStates(List<Node> lnodes, string finalstates)
+        {
+            for (int i = 0; i < finalstates.Split(',').Count(); i++)
+            {
+                int index = BinarySearch<Node>(lnodes, new Node(finalstates.Split(',')[i], null, false));
+                lnodes[index].SetBfinal_state(true);
+            }
+        }
+
+        private void PairTransitions(List<Node> lnodes, List<Transition> transitions)
+        {
+            int contador = 0;
+            string actual = transitions[0].GetStateOrigin();
+
+            while (transitions[contador].GetStateOrigin() == actual)
+            {
+                contador++;
+            }
+            
+            int amountnodes = lnodes.Count;
+
+            for (int i = 0; i < amountnodes; i++)
+            {
+                lnodes[i].SetSname(transitions[i*contador].GetStateOrigin());
+                lnodes[i].SetLtransitions(transitions.GetRange(i*contador,contador));
+            }
+
+        }
+
+        private List<T> MergeSort<T>(List<T> nodes) where T : IComparable<T>
         {
             if (nodes.Count == 1)
             {
@@ -89,7 +127,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             return MergedList;
         }
 
-        public int BinarySearch<T>(List<T> nodes, T key) where T : IComparable<T>   
+        private int BinarySearch<T>(List<T> nodes, T key) where T : IComparable<T>
         {
             if (nodes.Count == 0)
             {

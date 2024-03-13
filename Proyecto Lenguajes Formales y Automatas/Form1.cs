@@ -22,26 +22,26 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         private void Form1_Load(object sender, EventArgs e)
         {
             //momazos
-            
+            /*
               {
                List<Node> nodeList = new List<Node>()
              //examples generation
              {
-             new Node("L", new List<(string, string)> { ("AL", "SymbolAL"), ("BL", "SymbolBM") }, false),
-             new Node("O", new List<(string, string)> { ("AO", "SymbolAO"), ("BO", "SymbolBP") }, false),
-             new Node("J", new List<(string, string)> { ("AJ", "SymbolAJ"), ("BJ", "SymbolBK") }, false),
-             new Node("B", new List<(string, string)> { ("AB", "SymbolAB"), ("BB", "SymbolBC") }, true),
-             new Node("F", new List<(string, string)> { ("AF", "SymbolAF"), ("BF", "SymbolBG") }, false),
-             new Node("C", new List<(string, string)> { ("AC", "SymbolAC"), ("BC", "SymbolBD") }, false),
-             new Node("K", new List<(string, string)> { ("AK", "SymbolAK"), ("BK", "SymbolBL") }, true),
-             new Node("M", new List<(string, string)> { ("AM", "SymbolAM"), ("BM", "SymbolBN") }, true),
-             new Node("H", new List<(string, string)> { ("AH", "SymbolAH"), ("BH", "SymbolBI") }, false),
-             new Node("D", new List<(string, string)> { ("AD", "SymbolAD"), ("BD", "SymbolBE") }, false),
-             new Node("N", new List<(string, string)> { ("AN", "SymbolAN"), ("BN", "SymbolBO") }, false),
-             new Node("A", new List<(string, string)> { ("AA", "SymbolAA"), ("BA", "SymbolAB") }, false),
-             new Node("I", new List<(string, string)> { ("AI", "SymbolAI"), ("BI", "SymbolBJ") }, false),
-             new Node("G", new List<(string, string)> { ("AG", "SymbolAG"), ("BG", "SymbolBH") }, true),
-             new Node("E", new List<(string, string)> { ("AE", "SymbolAE"), ("BE", "SymbolBF") }, true)
+             new Node("L", null, false),
+             new Node("O", null, false),
+             new Node("J", null, false),
+             new Node("B", null, true),
+             new Node("F", null, false),
+             new Node("C", null, false),
+             new Node("K", null, true),
+             new Node("M", null, true),
+             new Node("H", null, false),
+             new Node("D", null, false),
+             new Node("N", null, false),
+             new Node("A", null, false),
+             new Node("I", null, false),
+             new Node("G", null, true),
+             new Node("E", null, true)
          };
 
              //print unsorted list
@@ -63,10 +63,11 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                      Console.WriteLine(node.GetSname() + "," + node.GetLtransitions().Count + "," + node.GetBfinal_state());
                  }
              }
-                 Console.WriteLine(Convert.ToString(momo.BinarySearch(MergedList, new Node("E", new List<(string, string)> { ("AE", "SymbolAE"), ("BE", "SymbolBF") }, true))));
+                Console.WriteLine(Convert.ToString(momo.BinarySearch(MergedList, new Node("Momo",null, false))));
              }
-             
-
+             */
+            
+            momo.ReadFile("D:\\Desktop\\AFD.txt");
 
         }
     }
