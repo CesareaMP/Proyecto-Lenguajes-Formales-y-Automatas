@@ -89,8 +89,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                 {
                     string fileName = Path.GetFileName(arrAllFiles[i]);
                     cmbDFA.Items.Add(fileName);
-                    DFA temp = new DFA();
-                    temp.ReadFile(arrAllFiles[i]);
+                    DFA temp = new DFA(arrAllFiles[i]);                    
                     dfas.Add(temp);
                 }
                 cmbDFA.SelectedIndex = 0;
