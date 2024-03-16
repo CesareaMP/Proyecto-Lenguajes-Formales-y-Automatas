@@ -69,6 +69,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Bateria de Pruebas\Bateria De Pruebas AFD SACMCAMPPR.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -81,6 +82,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bateria de Pruebas\Automata1.txt" />
+    <Content Include="Bateria de Pruebas\Automata2.txt" />
+    <Content Include="Bateria de Pruebas\Automata3.txt" />
+    <Content Include="Bateria de Pruebas\Automata4.txt" />
+    <Content Include="Bateria de Pruebas\Automata5.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
