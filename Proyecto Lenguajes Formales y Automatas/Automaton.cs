@@ -15,11 +15,6 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         private string Sinitial_node;
 
         public Automaton(string path) {
-            ReadTXTFile(path);
-        }
-
-        protected void ReadTXTFile(string path)
-        {
             const Int32 BufferSize = 128;
             using (var fileStream = File.OpenRead(path))
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))

@@ -32,11 +32,11 @@
             this.cmbDFA = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbcDFA = new System.Windows.Forms.TabPage();
-            this.tbcNFA = new System.Windows.Forms.TabPage();
-            this.lblSELECTDFA = new System.Windows.Forms.Label();
-            this.lblTRYDFA = new System.Windows.Forms.Label();
-            this.txtWORDDFA = new System.Windows.Forms.TextBox();
             this.btnTESTDFA = new System.Windows.Forms.Button();
+            this.txtWORDDFA = new System.Windows.Forms.TextBox();
+            this.lblTRYDFA = new System.Windows.Forms.Label();
+            this.lblSELECTDFA = new System.Windows.Forms.Label();
+            this.tbcNFA = new System.Windows.Forms.TabPage();
             this.btnTESTNFA = new System.Windows.Forms.Button();
             this.txtWORDNFA = new System.Windows.Forms.TextBox();
             this.lblTRYNFA = new System.Windows.Forms.Label();
@@ -93,6 +93,41 @@
             this.tbcDFA.Text = "DFA";
             this.tbcDFA.UseVisualStyleBackColor = true;
             // 
+            // btnTESTDFA
+            // 
+            this.btnTESTDFA.Location = new System.Drawing.Point(92, 162);
+            this.btnTESTDFA.Name = "btnTESTDFA";
+            this.btnTESTDFA.Size = new System.Drawing.Size(198, 91);
+            this.btnTESTDFA.TabIndex = 5;
+            this.btnTESTDFA.Text = "TEST";
+            this.btnTESTDFA.UseVisualStyleBackColor = true;
+            // 
+            // txtWORDDFA
+            // 
+            this.txtWORDDFA.Enabled = false;
+            this.txtWORDDFA.Location = new System.Drawing.Point(183, 110);
+            this.txtWORDDFA.Name = "txtWORDDFA";
+            this.txtWORDDFA.Size = new System.Drawing.Size(200, 22);
+            this.txtWORDDFA.TabIndex = 4;
+            // 
+            // lblTRYDFA
+            // 
+            this.lblTRYDFA.AutoSize = true;
+            this.lblTRYDFA.Location = new System.Drawing.Point(25, 113);
+            this.lblTRYDFA.Name = "lblTRYDFA";
+            this.lblTRYDFA.Size = new System.Drawing.Size(129, 16);
+            this.lblTRYDFA.TabIndex = 3;
+            this.lblTRYDFA.Text = "Enter the word to test";
+            // 
+            // lblSELECTDFA
+            // 
+            this.lblSELECTDFA.AutoSize = true;
+            this.lblSELECTDFA.Location = new System.Drawing.Point(196, 31);
+            this.lblSELECTDFA.Name = "lblSELECTDFA";
+            this.lblSELECTDFA.Size = new System.Drawing.Size(165, 16);
+            this.lblSELECTDFA.TabIndex = 2;
+            this.lblSELECTDFA.Text = "Select the appropiate DFA";
+            // 
             // tbcNFA
             // 
             this.tbcNFA.Controls.Add(this.btnTESTNFA);
@@ -108,40 +143,6 @@
             this.tbcNFA.TabIndex = 1;
             this.tbcNFA.Text = "NFA";
             this.tbcNFA.UseVisualStyleBackColor = true;
-            // 
-            // lblSELECTDFA
-            // 
-            this.lblSELECTDFA.AutoSize = true;
-            this.lblSELECTDFA.Location = new System.Drawing.Point(196, 31);
-            this.lblSELECTDFA.Name = "lblSELECTDFA";
-            this.lblSELECTDFA.Size = new System.Drawing.Size(165, 16);
-            this.lblSELECTDFA.TabIndex = 2;
-            this.lblSELECTDFA.Text = "Select the appropiate DFA";
-            // 
-            // lblTRYDFA
-            // 
-            this.lblTRYDFA.AutoSize = true;
-            this.lblTRYDFA.Location = new System.Drawing.Point(25, 113);
-            this.lblTRYDFA.Name = "lblTRYDFA";
-            this.lblTRYDFA.Size = new System.Drawing.Size(129, 16);
-            this.lblTRYDFA.TabIndex = 3;
-            this.lblTRYDFA.Text = "Enter the word to test";
-            // 
-            // txtWORDDFA
-            // 
-            this.txtWORDDFA.Location = new System.Drawing.Point(183, 110);
-            this.txtWORDDFA.Name = "txtWORDDFA";
-            this.txtWORDDFA.Size = new System.Drawing.Size(200, 22);
-            this.txtWORDDFA.TabIndex = 4;
-            // 
-            // btnTESTDFA
-            // 
-            this.btnTESTDFA.Location = new System.Drawing.Point(92, 162);
-            this.btnTESTDFA.Name = "btnTESTDFA";
-            this.btnTESTDFA.Size = new System.Drawing.Size(198, 91);
-            this.btnTESTDFA.TabIndex = 5;
-            this.btnTESTDFA.Text = "TEST";
-            this.btnTESTDFA.UseVisualStyleBackColor = true;
             // 
             // btnTESTNFA
             // 

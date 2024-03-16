@@ -75,24 +75,31 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog choofdlog = new OpenFileDialog();
-            choofdlog.Filter = "All Files (*.*)|*.txt*";
-            choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = true;//crikoseada para recibir varios archivos xddd
-
-            if (choofdlog.ShowDialog() == DialogResult.OK)
+            try
             {
-                this.cmbDFA.Enabled = true;
-                this.btnSELECTDFA.Enabled = false;
-                string[] arrAllFiles = choofdlog.FileNames;//D:\\Desktop\\AFD's\\AFD1.txt                
-                for (int i = 0; i < arrAllFiles.Count(); i++)
+                OpenFileDialog choofdlog = new OpenFileDialog();
+                choofdlog.Filter = "All Files (*.*)|*.*";
+                choofdlog.FilterIndex = 1;
+                choofdlog.Multiselect = true;//crikoseada para recibir varios archivos xddd
+
+                if (choofdlog.ShowDialog() == DialogResult.OK)
                 {
-                    string fileName = Path.GetFileName(arrAllFiles[i]);
-                    cmbDFA.Items.Add(fileName);
-                    DFA temp = new DFA(arrAllFiles[i]);                    
-                    dfas.Add(temp);
+                    string[] arrAllFiles = choofdlog.FileNames;//D:\\Desktop\\AFD's\\AFD1.txt                
+                    for (int i = 0; i < arrAllFiles.Count(); i++)
+                    {
+                        string fileName = Path.GetFileName(arrAllFiles[i]);                        
+                        DFA temp = new DFA(arrAllFiles[i]);
+                        dfas.Add(temp);
+                        cmbDFA.Items.Add(fileName);
+                    }
+                    this.cmbDFA.Enabled = true;
+                    this.txtWORDDFA.Enabled = true;
+                    cmbDFA.SelectedIndex = 0;
                 }
-                cmbDFA.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo no es válido");
             }
         }
     }
