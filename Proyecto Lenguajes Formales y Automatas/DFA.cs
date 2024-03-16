@@ -27,7 +27,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             {                    
                 int amount = Convert.ToInt32(streamReader.ReadLine());//cantidad de estados
                 this.Sinitial_node = streamReader.ReadLine();//estado inicial
-                string finalstates = streamReader.ReadLine();//estados finales
+                string finalstates = Regex.Replace(streamReader.ReadLine(), @"\s", "");//estados finales
 
                 for (int i = 1; i <= amount; i++)
                 {
@@ -39,7 +39,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
                 while ((linea = streamReader.ReadLine()) != null)
                 {
-                    transitions.Add(new Transition(linea.Split(',')[0], linea.Split(',')[1], linea.Split(',')[2]));
+                    transitions.Add(new Transition(Regex.Replace(linea.Split(',')[0], @"\s", ""), Regex.Replace(linea.Split(',')[1], @"\s", ""), Regex.Replace(linea.Split(',')[2], @"\s", "")));
                 }
 
                 transitions = MergeSort(transitions);
@@ -60,7 +60,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             {
                 if (!language.Contains(transitions[i].GetSymbol()))
                 {
-                    language.Add(transitions[i].GetSymbol());
+                    language.Add(Regex.Replace(transitions[i].GetSymbol(), @"\s", ""));
                 }
             }
             return language;
