@@ -78,7 +78,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             OpenFileDialog choofdlog = new OpenFileDialog();
             choofdlog.Filter = "All Files (*.*)|*.txt*";
             choofdlog.FilterIndex = 1;
-            choofdlog.Multiselect = true;
+            choofdlog.Multiselect = true;//crikoseada para recibir varios archivos xddd
 
             if (choofdlog.ShowDialog() == DialogResult.OK)
             {

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Proyecto_Lenguajes_Formales_y_Automatas
 {
-    internal class DFA
+    internal class DFA//prueba nada ma
     {
         private List<Node> Lnodes = new List<Node>();
         private List<string> Llanguage = new List<string>();
