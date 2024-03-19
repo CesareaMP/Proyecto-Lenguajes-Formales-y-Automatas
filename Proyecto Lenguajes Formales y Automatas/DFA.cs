@@ -37,23 +37,47 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         {
             Node currentNode = initialNode;
             Boolean failed = false;
-            string recorrido = initialNode.GetSname()+", ";
-            int currentInputPos = 0;
+            string recorrido = "";
+            Boolean foundNext = false;
 
             while (!failed) 
             {
                 List<Transition> TransitionsOfCurrentNode = currentNode.GetLtransitions();
-                for (int i = 0; i <= TransitionsOfCurrentNode.Count(); i++) 
+                for (int i = 0; i < Sinput.Length; i++) 
                 {
-                    if (i == TransitionsOfCurrentNode.Count()) 
+                    if (i == Sinput.Length - 1) { failed = true; }
+                    TransitionsOfCurrentNode = currentNode.GetLtransitions();
+                    foundNext = false;
+                    for (int j = 0; j <= TransitionsOfCurrentNode.Count(); j++) 
                     {
-                        failed = true;
-                    }
-                    else if (TransitionsOfCurrentNode[i].GetSymbol().Contains(Sinput[currentInputPos])) 
-                    {
-                        currentNode = getNodeByName(TransitionsOfCurrentNode[i].GetStateDestiny());
-                        recorrido += currentNode.GetSname() + ", ";
-                        currentInputPos++;
+                        if (!foundNext) 
+                        {
+                            if (j == TransitionsOfCurrentNode.Count()) 
+                            {
+                                failed = true;
+                                recorrido += "No se acepta, no hay una transicion con el caracter "+ Sinput[i].ToString() +" a partir del nodo actual";
+                            }
+                            else if (Sinput[i].ToString().Equals(TransitionsOfCurrentNode[j].GetSymbol()))
+                            {
+                                recorrido += currentNode.GetSname() + "->" + Sinput[i].ToString()+"->";
+                                currentNode = getNodeByName(TransitionsOfCurrentNode[j].GetStateDestiny());
+                                foundNext = true;
+                                recorrido += currentNode.GetSname() + "\n";
+
+                                if (i == Sinput.Length - 1) 
+                                {
+                                    if (currentNode.GetBfinal_state() == true)
+                                    {
+                                        recorrido += "Es un nodo final, por ende se acepta!";
+                                    }
+                                    else 
+                                    {
+                                        recorrido += "Es un nodo no final, por ende no se acepta!";
+                                    }
+                                    failed = true;
+                                }
+                            }
+                        }
                     }
                 }
             }
