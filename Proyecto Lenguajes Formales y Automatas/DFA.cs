@@ -45,27 +45,44 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                 List<Transition> TransitionsOfCurrentNode = currentNode.GetLtransitions();
                 for (int i = 0; i < Sinput.Length; i++) 
                 {
-                    if (i == Sinput.Length - 1) { failed = true; }
+                    //Se comprueba si se ha recorrido todo el string input o si el caracter actual esta en el lenguaje
+                    if (i == Sinput.Length - 1 || Llanguage.Contains(Sinput[i].ToString()))
+                    {
+                        //Se termina el algoritmo
+                        failed = true;
+                    }
+
+                    //Obtenemos todas las transiciones del nodo actual
                     TransitionsOfCurrentNode = currentNode.GetLtransitions();
+                    //declaramos foundNext como falso
                     foundNext = false;
+                    //Recorremos cada transicion del nodo actual
                     for (int j = 0; j <= TransitionsOfCurrentNode.Count(); j++) 
                     {
-                        if (!foundNext) 
+                        //Si no se ha encontrado el siguiente nodo y no ha fallado
+                        if (!foundNext && failed == false) 
                         {
-                            if (j == TransitionsOfCurrentNode.Count()) 
+                            //Si ya se comprobaron todas las transiciones (esto significa que no hay una transicion valida con el caracter actual)
+                            if (j == TransitionsOfCurrentNode.Count())
                             {
+                                //Se detiene
                                 failed = true;
-                                recorrido += "No se acepta, no hay una transicion con el caracter "+ Sinput[i].ToString() +" a partir del nodo actual";
+                                recorrido += "No se acepta, no hay una transicion con el caracter " + Sinput[i].ToString() + " a partir del nodo actual";
                             }
-                            else if (Sinput[i].ToString().Equals(TransitionsOfCurrentNode[j].GetSymbol()))
+                            else if (Sinput[i].ToString().Equals(TransitionsOfCurrentNode[j].GetSymbol()) && failed == false) //Se comprueba que el caracter sea el mismo que el de la transicion
                             {
+                                //Se escribe el nodo en el que esta y con que caracter hace la transicion
                                 recorrido += currentNode.GetSname() + "->" + Sinput[i].ToString()+"->";
+                                //Se cambia al siguiente nodo y se declara foundnext como true (esto hara que ya no se recorran las transiciones restantes)
                                 currentNode = getNodeByName(TransitionsOfCurrentNode[j].GetStateDestiny());
                                 foundNext = true;
+                                //Se escribe hacia que nodo va
                                 recorrido += currentNode.GetSname() + "\n";
 
+                                //Si es el ultimo caracter del string
                                 if (i == Sinput.Length - 1) 
                                 {
+                                    //Se comprueba si es final o no
                                     if (currentNode.GetBfinal_state() == true)
                                     {
                                         recorrido += "Es un nodo final, por ende se acepta!";
@@ -74,6 +91,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                                     {
                                         recorrido += "Es un nodo no final, por ende no se acepta!";
                                     }
+                                    //Se termina de recorrer
                                     failed = true;
                                 }
                             }
