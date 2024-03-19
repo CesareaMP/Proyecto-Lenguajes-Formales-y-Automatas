@@ -14,6 +14,22 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         private List<string> Llanguage = new List<string>();
         private string Sinitial_node;
 
+        protected List<Node> getLStates() 
+        {
+            return Lstates;
+        }
+        
+        protected List<string> getLlanguage() 
+        {
+            return Llanguage;
+        }
+
+        protected string getSinitial_node() 
+        {
+            return Sinitial_node;
+        }
+
+
         public Automaton(string path) {
             const Int32 BufferSize = 128;
             using (var fileStream = File.OpenRead(path))
