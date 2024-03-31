@@ -45,12 +45,6 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                 List<Transition> TransitionsOfCurrentNode = currentNode.GetLtransitions();
                 for (int i = 0; i < Sinput.Length; i++) 
                 {
-                    //Se comprueba si se ha recorrido todo el string input o si el caracter actual esta en el lenguaje
-                    if (i == Sinput.Length - 1 || Llanguage.Contains(Sinput[i].ToString()))
-                    {
-                        //Se termina el algoritmo
-                        failed = true;
-                    }
 
                     //Obtenemos todas las transiciones del nodo actual
                     TransitionsOfCurrentNode = currentNode.GetLtransitions();
@@ -96,6 +90,13 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                                 }
                             }
                         }
+                    }
+
+                    //Se comprueba si se ha recorrido todo el string input o si el caracter actual esta en el lenguaje
+                    if (i == Sinput.Length - 1 || !Llanguage.Contains(Sinput[i].ToString()))
+                    {
+                        //Se termina el algoritmo
+                        failed = true;
                     }
                 }
             }
