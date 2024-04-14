@@ -53,33 +53,13 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             Sstate_destiny = value;
         }
 
+        public string TransitionToString()
+        {
+            return Sstate_origin + "->" + Ssymbol + "->" + Sstate_destiny;
+        }
         public int CompareTo(Transition other)
         {
-            // Parse numbers from strings
-            string[] xParts = System.Text.RegularExpressions.Regex.Split(this.Sstate_origin, @"(\d+)");
-            string[] yParts = System.Text.RegularExpressions.Regex.Split(other.Sstate_origin, @"(\d+)");
-
-            for (int i = 0; i < Math.Min(xParts.Length, yParts.Length); i++)
-            {
-                // If both parts are numeric, parse and compare numerically
-                int xNum, yNum;
-                if (int.TryParse(xParts[i], out xNum) && int.TryParse(yParts[i], out yNum))
-                {
-                    int comparison = xNum.CompareTo(yNum);
-                    if (comparison != 0)
-                        return comparison;
-                }
-                else
-                {
-                    // If either part is not numeric, compare lexically
-                    int comparison = xParts[i].CompareTo(yParts[i]);
-                    if (comparison != 0)
-                        return comparison;
-                }
-            }
-
-            // If all parts are equal, compare the lengths
-            return this.Sstate_origin.Length.CompareTo(other.Sstate_origin.Length);
+            return Sstate_origin.CompareTo(other.Sstate_origin);
         }
 
     }

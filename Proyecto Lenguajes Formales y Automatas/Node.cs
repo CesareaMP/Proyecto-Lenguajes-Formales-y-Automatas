@@ -53,36 +53,24 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         {
             return Bfinal_state;
         }
+
+        public string Accepted(bool condition)
+        {
+            if (GetBfinal_state() && condition)
+            {
+                return "Se acepta la palabra";
+            }
+            else
+            {
+                return "No se acepta la palabra";
+            }
+        }
             
         public Node() { }
 
         public int CompareTo(Node other)
         {
-            // Parse numbers from strings
-            string[] xParts = System.Text.RegularExpressions.Regex.Split(this.Sname, @"(\d+)");
-            string[] yParts = System.Text.RegularExpressions.Regex.Split(other.Sname, @"(\d+)");
-
-            for (int i = 0; i < Math.Min(xParts.Length, yParts.Length); i++)
-            {
-                // If both parts are numeric, parse and compare numerically
-                int xNum, yNum;
-                if (int.TryParse(xParts[i], out xNum) && int.TryParse(yParts[i], out yNum))
-                {
-                    int comparison = xNum.CompareTo(yNum);
-                    if (comparison != 0)
-                        return comparison;
-                }
-                else
-                {
-                    // If either part is not numeric, compare lexically
-                    int comparison = xParts[i].CompareTo(yParts[i]);
-                    if (comparison != 0)
-                        return comparison;
-                }
-            }
-
-            // If all parts are equal, compare the lengths
-            return this.Sname.Length.CompareTo(other.Sname.Length);
+            return Sname.CompareTo(other.Sname);
         }
 
     }
