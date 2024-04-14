@@ -63,6 +63,8 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
             string recorrido = Nactual_dfa.RunDFAString(txtWORDDFA.Text);
 
+            txtRecorrido.Text = "";
+
             string[] lines = recorrido.Split('\n');
             foreach (string line in lines)
             {
