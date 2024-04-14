@@ -1,0 +1,147 @@
+[33mcommit c828594c8e460046887bb004d04a5777e2e7719e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 70c5a2a d74804e
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Sat Apr 13 19:11:40 2024 -0600
+
+    pull & merge
+
+[33mcommit 70c5a2aeea57aecbfb7b277ec0f757a8aaf19e1d[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Sat Apr 13 19:10:40 2024 -0600
+
+    Se cambia el enfoque del proyecto utilizando metodos mas refinados y comprensibles para la comprension comprectora del compretor del compreto.
+
+[33mcommit d74804ecba15eca31b6252b1050578fa6708cea4[m
+Author: Casta1164622 <sacastanedam@correo.url.edu.gt>
+Date:   Sat Apr 13 18:42:00 2024 -0600
+
+    Hotfix Display recorrido
+
+[33mcommit e04900a6843155e22705516c49cd3b88c8df43e9[m
+Author: ReyCalderon <pjreyesc@correo.url.edu.gt>
+Date:   Sun Apr 14 00:19:41 2024 -0600
+
+    Se agrego el recorrido de los DFA a un textbox para que aparezca.
+
+[33mcommit 6515039c754fba38628e54f9dfb7e3cc05135a70[m
+Author: Casta1164622 <sacastanedam@correo.url.edu.gt>
+Date:   Sun Mar 31 15:17:35 2024 -0600
+
+    Arreglado metodo de recorrido, ahora si funciona correctamente
+
+[33mcommit a9e18d3731a846d9311aacd91896318839ca9dc2[m
+Author: Casta1164622 <sacastanedam@correo.url.edu.gt>
+Date:   Tue Mar 19 17:17:25 2024 -0600
+
+    Arreglados un par de bugs en el algoritmo de recorrido de inputs DFA
+
+[33mcommit bf5b0819a7d0eeb5e5952f246d2e2145c48df9ba[m
+Author: Casta1164622 <sacastanedam@correo.url.edu.gt>
+Date:   Tue Mar 19 16:42:47 2024 -0600
+
+    Agregada funcion funcional para recorrer strings DFA (200% mas eficiente que la solucion del  Cesar xd)
+
+[33mcommit 91f9d3e85eca5c1e28a932f24d7a9a10c37a9740[m
+Author: Casta1164622 <sacastanedam@correo.url.edu.gt>
+Date:   Mon Mar 18 20:51:22 2024 -0600
+
+    Iniciada programacion de recorrido de strings de FDA
+
+[33mcommit 36ee3796a74d7e010e0c1b775e46e503c07c991e[m
+Merge: 6e93586 bc5e802
+Author: César Mejía <99850286+CesareaMP@users.noreply.github.com>
+Date:   Mon Mar 18 19:23:54 2024 -0600
+
+    Merge pull request #1 from CesareaMP/Design
+    
+    Design
+
+[33mcommit bc5e80253ac99608dc6fa84943f82d5533526b3b[m[33m ([m[1;31morigin/Design[m[33m)[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Sat Mar 16 17:19:27 2024 -0600
+
+    Se arreglan errores en la carga del archivo
+
+[33mcommit 38aaa3eec16abc0cd5bf4dafb2a987b1a17b1455[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Sat Mar 16 13:13:19 2024 -0600
+
+    Se realizo un cambio en la estructura haciendo que se heredara de una clase superior para utilizar metodos iguales en clases hijas
+
+[33mcommit 894684abf5b59c7b671e7099757cdcec3b8fc029[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Sat Mar 16 12:51:51 2024 -0600
+
+    prueba nada mas
+
+[33mcommit ca7da16e1355ee1341940c5bb1a4c1c23791fe65[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Sat Mar 16 08:49:25 2024 -0600
+
+    Carga de Bateria de Pruebas
+
+[33mcommit ede6fd2b4a76585adb324aadad1a66223b81867d[m[33m ([m[1;31morigin/Structures[m[33m)[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Fri Mar 15 20:40:47 2024 -0600
+
+    Se hizo el diseño para pruebas
+
+[33mcommit e9a5ee34e1f1b6ea6d6c539e5b12ccddd7deee71[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Fri Mar 15 19:36:09 2024 -0600
+
+    Se arregla el error de que los espacios en blanco eran tomados en cuenta como parte del lenguaje
+
+[33mcommit 3d312469239dc8986989dad3c8a80467820e2bb8[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Wed Mar 13 08:12:36 2024 -0600
+
+    Se arregla el metodo de Carga tomando en cuenta que puede haber transiciones inexistentes y ademas
+
+[33mcommit 8b106bdb4a286cfe25b1782df1c53e42e7d60adb[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Tue Mar 12 22:43:33 2024 -0600
+
+    Se lee el archivo del automata y se crea la estructura del mismo
+
+[33mcommit da8fed8bba45cda3d3572b1fb93be47e6a0a2dbc[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Tue Mar 12 20:14:04 2024 -0600
+
+    Se hicieron los metodos de ordenamiento y busqueda genericos, se cambio de lugar la comparacion para ser parte del nodo
+
+[33mcommit 70a997d8e593af8d8bb2fe742f6685c9adc7adae[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Tue Mar 12 09:02:32 2024 -0600
+
+    Se cambio el metodo Higher por Compare para comparar alfabeticamente
+
+[33mcommit f7cabcc77e15ad1b1ca8e02e4d6bff3b69641753[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Mon Mar 11 21:02:29 2024 -0600
+
+    Se implemento Busqueda Binaria
+
+[33mcommit 0d4d00eb6771335d682a9864087c953697ca5032[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Mon Mar 11 20:12:05 2024 -0600
+
+    Se implemento el metodo de Shell Sort para listas
+
+[33mcommit 2f3c5cfefb0c8d6b8c10c099486182571994b04f[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Mon Mar 11 17:14:25 2024 -0600
+
+    Se crea el nodo de la estructura de AFD
+
+[33mcommit 6e935860c388320b99987a95366a649822c0daca[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Mon Mar 11 17:12:28 2024 -0600
+
+    Add project files.
+
+[33mcommit 3e303428e8c20a267417f465dabc7306e7b7cb14[m
+Author: CESAR ALESSANDRO MEJIA PEREZ <camejiap@correo.url.edu.gt>
+Date:   Mon Mar 11 17:12:26 2024 -0600
+
+    Add .gitattributes and .gitignore.
