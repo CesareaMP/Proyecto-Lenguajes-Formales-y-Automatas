@@ -57,17 +57,18 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
         private void btnTESTDFA_Click(object sender, EventArgs e)
         {
+            ltRECORRIDO.Items.Clear();
+
             int Icurrent_momomaton = cmbDFA.SelectedIndex;
 
             DFA Nactual_dfa = dfas.ElementAt(Icurrent_momomaton);
 
             string recorrido = Nactual_dfa.Verify(txtWORDDFA.Text);
-            txtRecorrido.Text = "";
 
             string[] lines = recorrido.Split('\n');
             foreach (string line in lines)
             {
-                txtRecorrido.AppendText(line + Environment.NewLine);
+                ltRECORRIDO.Items.Add(line + Environment.NewLine);
             }
 
             txtWORDDFA.Text = "";
