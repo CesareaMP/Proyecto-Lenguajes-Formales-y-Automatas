@@ -61,7 +61,13 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 
             DFA Nactual_dfa = dfas.ElementAt(Icurrent_momomaton);
 
-            Nactual_dfa.RunDFAString(txtWORDDFA.Text);
+            string recorrido = Nactual_dfa.RunDFAString(txtWORDDFA.Text);
+
+            string[] lines = recorrido.Split('\n');
+            foreach (string line in lines)
+            {
+                txtRecorrido.AppendText(line + Environment.NewLine);
+            }
         }
     }
 }

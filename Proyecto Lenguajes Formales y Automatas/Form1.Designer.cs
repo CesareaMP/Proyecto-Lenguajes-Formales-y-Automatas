@@ -43,6 +43,8 @@
             this.lblSELECTNFA = new System.Windows.Forms.Label();
             this.btnSELECTNFA = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtRecorrido = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tbcDFA.SuspendLayout();
             this.tbcNFA.SuspendLayout();
@@ -50,10 +52,9 @@
             // 
             // btnSELECTDFA
             // 
-            this.btnSELECTDFA.Location = new System.Drawing.Point(21, 18);
-            this.btnSELECTDFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSELECTDFA.Location = new System.Drawing.Point(32, 28);
             this.btnSELECTDFA.Name = "btnSELECTDFA";
-            this.btnSELECTDFA.Size = new System.Drawing.Size(94, 54);
+            this.btnSELECTDFA.Size = new System.Drawing.Size(141, 83);
             this.btnSELECTDFA.TabIndex = 0;
             this.btnSELECTDFA.Text = "Select DFA Files";
             this.btnSELECTDFA.UseVisualStyleBackColor = true;
@@ -63,46 +64,44 @@
             // 
             this.cmbDFA.Enabled = false;
             this.cmbDFA.FormattingEnabled = true;
-            this.cmbDFA.Location = new System.Drawing.Point(137, 45);
-            this.cmbDFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDFA.Location = new System.Drawing.Point(206, 69);
             this.cmbDFA.Name = "cmbDFA";
-            this.cmbDFA.Size = new System.Drawing.Size(151, 21);
+            this.cmbDFA.Size = new System.Drawing.Size(224, 28);
             this.cmbDFA.TabIndex = 1;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tbcDFA);
             this.tabControl1.Controls.Add(this.tbcNFA);
-            this.tabControl1.Location = new System.Drawing.Point(9, 19);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControl1.Location = new System.Drawing.Point(14, 29);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(312, 262);
+            this.tabControl1.Size = new System.Drawing.Size(909, 398);
             this.tabControl1.TabIndex = 2;
             // 
             // tbcDFA
             // 
+            this.tbcDFA.Controls.Add(this.txtRecorrido);
+            this.tbcDFA.Controls.Add(this.label1);
             this.tbcDFA.Controls.Add(this.btnTESTDFA);
             this.tbcDFA.Controls.Add(this.txtWORDDFA);
             this.tbcDFA.Controls.Add(this.lblTRYDFA);
             this.tbcDFA.Controls.Add(this.lblSELECTDFA);
             this.tbcDFA.Controls.Add(this.btnSELECTDFA);
             this.tbcDFA.Controls.Add(this.cmbDFA);
-            this.tbcDFA.Location = new System.Drawing.Point(4, 22);
-            this.tbcDFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcDFA.Location = new System.Drawing.Point(4, 29);
             this.tbcDFA.Name = "tbcDFA";
-            this.tbcDFA.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbcDFA.Size = new System.Drawing.Size(304, 236);
+            this.tbcDFA.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbcDFA.Size = new System.Drawing.Size(901, 365);
             this.tbcDFA.TabIndex = 0;
             this.tbcDFA.Text = "DFA";
             this.tbcDFA.UseVisualStyleBackColor = true;
             // 
             // btnTESTDFA
             // 
-            this.btnTESTDFA.Location = new System.Drawing.Point(69, 132);
-            this.btnTESTDFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTESTDFA.Location = new System.Drawing.Point(104, 203);
             this.btnTESTDFA.Name = "btnTESTDFA";
-            this.btnTESTDFA.Size = new System.Drawing.Size(148, 74);
+            this.btnTESTDFA.Size = new System.Drawing.Size(222, 114);
             this.btnTESTDFA.TabIndex = 5;
             this.btnTESTDFA.Text = "TEST";
             this.btnTESTDFA.UseVisualStyleBackColor = true;
@@ -111,29 +110,26 @@
             // txtWORDDFA
             // 
             this.txtWORDDFA.Enabled = false;
-            this.txtWORDDFA.Location = new System.Drawing.Point(137, 89);
-            this.txtWORDDFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWORDDFA.Location = new System.Drawing.Point(206, 137);
             this.txtWORDDFA.Name = "txtWORDDFA";
-            this.txtWORDDFA.Size = new System.Drawing.Size(151, 20);
+            this.txtWORDDFA.Size = new System.Drawing.Size(224, 26);
             this.txtWORDDFA.TabIndex = 4;
             // 
             // lblTRYDFA
             // 
             this.lblTRYDFA.AutoSize = true;
-            this.lblTRYDFA.Location = new System.Drawing.Point(19, 92);
-            this.lblTRYDFA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTRYDFA.Location = new System.Drawing.Point(28, 142);
             this.lblTRYDFA.Name = "lblTRYDFA";
-            this.lblTRYDFA.Size = new System.Drawing.Size(108, 13);
+            this.lblTRYDFA.Size = new System.Drawing.Size(162, 20);
             this.lblTRYDFA.TabIndex = 3;
             this.lblTRYDFA.Text = "Enter the word to test";
             // 
             // lblSELECTDFA
             // 
             this.lblSELECTDFA.AutoSize = true;
-            this.lblSELECTDFA.Location = new System.Drawing.Point(147, 25);
-            this.lblSELECTDFA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSELECTDFA.Location = new System.Drawing.Point(220, 38);
             this.lblSELECTDFA.Name = "lblSELECTDFA";
-            this.lblSELECTDFA.Size = new System.Drawing.Size(132, 13);
+            this.lblSELECTDFA.Size = new System.Drawing.Size(198, 20);
             this.lblSELECTDFA.TabIndex = 2;
             this.lblSELECTDFA.Text = "Select the appropiate DFA";
             // 
@@ -145,40 +141,36 @@
             this.tbcNFA.Controls.Add(this.lblSELECTNFA);
             this.tbcNFA.Controls.Add(this.btnSELECTNFA);
             this.tbcNFA.Controls.Add(this.comboBox1);
-            this.tbcNFA.Location = new System.Drawing.Point(4, 22);
-            this.tbcNFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbcNFA.Location = new System.Drawing.Point(4, 29);
             this.tbcNFA.Name = "tbcNFA";
-            this.tbcNFA.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tbcNFA.Size = new System.Drawing.Size(304, 236);
+            this.tbcNFA.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tbcNFA.Size = new System.Drawing.Size(460, 370);
             this.tbcNFA.TabIndex = 1;
             this.tbcNFA.Text = "NFA";
             this.tbcNFA.UseVisualStyleBackColor = true;
             // 
             // btnTESTNFA
             // 
-            this.btnTESTNFA.Location = new System.Drawing.Point(69, 139);
-            this.btnTESTNFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnTESTNFA.Location = new System.Drawing.Point(104, 214);
             this.btnTESTNFA.Name = "btnTESTNFA";
-            this.btnTESTNFA.Size = new System.Drawing.Size(148, 74);
+            this.btnTESTNFA.Size = new System.Drawing.Size(222, 114);
             this.btnTESTNFA.TabIndex = 11;
             this.btnTESTNFA.Text = "TEST";
             this.btnTESTNFA.UseVisualStyleBackColor = true;
             // 
             // txtWORDNFA
             // 
-            this.txtWORDNFA.Location = new System.Drawing.Point(137, 97);
-            this.txtWORDNFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWORDNFA.Location = new System.Drawing.Point(206, 149);
             this.txtWORDNFA.Name = "txtWORDNFA";
-            this.txtWORDNFA.Size = new System.Drawing.Size(151, 20);
+            this.txtWORDNFA.Size = new System.Drawing.Size(224, 26);
             this.txtWORDNFA.TabIndex = 10;
             // 
             // lblTRYNFA
             // 
             this.lblTRYNFA.AutoSize = true;
-            this.lblTRYNFA.Location = new System.Drawing.Point(19, 99);
-            this.lblTRYNFA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTRYNFA.Location = new System.Drawing.Point(28, 152);
             this.lblTRYNFA.Name = "lblTRYNFA";
-            this.lblTRYNFA.Size = new System.Drawing.Size(108, 13);
+            this.lblTRYNFA.Size = new System.Drawing.Size(162, 20);
             this.lblTRYNFA.TabIndex = 9;
             this.lblTRYNFA.Text = "Enter the word to test";
             // 
@@ -186,19 +178,17 @@
             // 
             this.lblSELECTNFA.AutoSize = true;
             this.lblSELECTNFA.BackColor = System.Drawing.Color.Transparent;
-            this.lblSELECTNFA.Location = new System.Drawing.Point(147, 32);
-            this.lblSELECTNFA.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSELECTNFA.Location = new System.Drawing.Point(220, 49);
             this.lblSELECTNFA.Name = "lblSELECTNFA";
-            this.lblSELECTNFA.Size = new System.Drawing.Size(132, 13);
+            this.lblSELECTNFA.Size = new System.Drawing.Size(197, 20);
             this.lblSELECTNFA.TabIndex = 8;
             this.lblSELECTNFA.Text = "Select the appropiate NFA";
             // 
             // btnSELECTNFA
             // 
-            this.btnSELECTNFA.Location = new System.Drawing.Point(21, 25);
-            this.btnSELECTNFA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSELECTNFA.Location = new System.Drawing.Point(32, 38);
             this.btnSELECTNFA.Name = "btnSELECTNFA";
-            this.btnSELECTNFA.Size = new System.Drawing.Size(94, 54);
+            this.btnSELECTNFA.Size = new System.Drawing.Size(141, 83);
             this.btnSELECTNFA.TabIndex = 6;
             this.btnSELECTNFA.Text = "Select NFA Files";
             this.btnSELECTNFA.UseVisualStyleBackColor = true;
@@ -207,19 +197,34 @@
             // 
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(137, 52);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Location = new System.Drawing.Point(206, 80);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 21);
+            this.comboBox1.Size = new System.Drawing.Size(224, 28);
             this.comboBox1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(478, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Recorrido:";
+            // 
+            // txtRecorrido
+            // 
+            this.txtRecorrido.Location = new System.Drawing.Point(482, 69);
+            this.txtRecorrido.Multiline = true;
+            this.txtRecorrido.Name = "txtRecorrido";
+            this.txtRecorrido.Size = new System.Drawing.Size(361, 279);
+            this.txtRecorrido.TabIndex = 8;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 290);
+            this.ClientSize = new System.Drawing.Size(962, 480);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "DFA & NFA Tester";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -249,6 +254,8 @@
         private System.Windows.Forms.Label lblSELECTNFA;
         private System.Windows.Forms.Button btnSELECTNFA;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtRecorrido;
     }
 }
 
