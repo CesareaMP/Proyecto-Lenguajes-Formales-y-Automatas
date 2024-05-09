@@ -95,7 +95,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
                 {
                     if (node.GetLtransitions()[j].GetSymbol() == "")
                     {
-                        pathss.Add((actualinput.Length + current, node.GetLtransitions()[j]));
+                        pathss.Add((current, node.GetLtransitions()[j]));
                     }
                 }
             }
