@@ -20,6 +20,7 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         
         
         List<DFA> dfas = new List<DFA>();
+        List<NFA> nfas = new List<NFA>();
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -72,6 +73,48 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             }
 
             txtWORDDFA.Text = "";
+        }
+
+        private void btnSELECTNFA_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog choofdlog = new OpenFileDialog();
+                choofdlog.Filter = "All Files (*.*)|*.*";
+                choofdlog.FilterIndex = 1;
+                choofdlog.Multiselect = true;//crikoseada para recibir varios archivos xddd
+
+                if (choofdlog.ShowDialog() == DialogResult.OK)
+                {
+                    string[] arrAllFiles = choofdlog.FileNames;//D:\\Desktop\\AFD's\\AFD1.txt                
+                    for (int i = 0; i < arrAllFiles.Count(); i++)
+                    {
+                        string fileName = Path.GetFileName(arrAllFiles[i]);
+                        NFA temp = new NFA(arrAllFiles[i]);
+                        nfas.Add(temp);
+                        cmbNFA.Items.Add(fileName);
+                    }
+                    this.cmbNFA.Enabled = true;
+                    this.txtWORDNFA.Enabled = true;
+                    cmbNFA.SelectedIndex = 0;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El archivo no es válido");
+            }
+        }
+
+        private void btnTESTNFA_Click(object sender, EventArgs e)
+        {
+            ltRECORRIDOSNFA.Items.Clear();
+
+            int Icurrent_momomaton = cmbNFA.SelectedIndex;
+
+            NFA Nactual_nfa = nfas.ElementAt(Icurrent_momomaton);
+
+            nfas[0].Verify(txtWORDNFA.Text);
+           
         }
     }
 }

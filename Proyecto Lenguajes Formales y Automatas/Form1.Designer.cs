@@ -32,6 +32,7 @@
             this.cmbDFA = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbcDFA = new System.Windows.Forms.TabPage();
+            this.ltRECORRIDO = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnTESTDFA = new System.Windows.Forms.Button();
             this.txtWORDDFA = new System.Windows.Forms.TextBox();
@@ -43,8 +44,8 @@
             this.lblTRYNFA = new System.Windows.Forms.Label();
             this.lblSELECTNFA = new System.Windows.Forms.Label();
             this.btnSELECTNFA = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.ltRECORRIDO = new System.Windows.Forms.ListBox();
+            this.cmbNFA = new System.Windows.Forms.ComboBox();
+            this.ltRECORRIDOSNFA = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tbcDFA.SuspendLayout();
             this.tbcNFA.SuspendLayout();
@@ -101,6 +102,15 @@
             this.tbcDFA.Text = "DFA";
             this.tbcDFA.UseVisualStyleBackColor = true;
             // 
+            // ltRECORRIDO
+            // 
+            this.ltRECORRIDO.FormattingEnabled = true;
+            this.ltRECORRIDO.ItemHeight = 16;
+            this.ltRECORRIDO.Location = new System.Drawing.Point(428, 41);
+            this.ltRECORRIDO.Name = "ltRECORRIDO";
+            this.ltRECORRIDO.Size = new System.Drawing.Size(351, 228);
+            this.ltRECORRIDO.TabIndex = 8;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -150,12 +160,13 @@
             // 
             // tbcNFA
             // 
+            this.tbcNFA.Controls.Add(this.ltRECORRIDOSNFA);
             this.tbcNFA.Controls.Add(this.btnTESTNFA);
             this.tbcNFA.Controls.Add(this.txtWORDNFA);
             this.tbcNFA.Controls.Add(this.lblTRYNFA);
             this.tbcNFA.Controls.Add(this.lblSELECTNFA);
             this.tbcNFA.Controls.Add(this.btnSELECTNFA);
-            this.tbcNFA.Controls.Add(this.comboBox1);
+            this.tbcNFA.Controls.Add(this.cmbNFA);
             this.tbcNFA.Location = new System.Drawing.Point(4, 25);
             this.tbcNFA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbcNFA.Name = "tbcNFA";
@@ -174,6 +185,7 @@
             this.btnTESTNFA.TabIndex = 11;
             this.btnTESTNFA.Text = "TEST";
             this.btnTESTNFA.UseVisualStyleBackColor = true;
+            this.btnTESTNFA.Click += new System.EventHandler(this.btnTESTNFA_Click);
             // 
             // txtWORDNFA
             // 
@@ -211,25 +223,26 @@
             this.btnSELECTNFA.TabIndex = 6;
             this.btnSELECTNFA.Text = "Select NFA Files";
             this.btnSELECTNFA.UseVisualStyleBackColor = true;
+            this.btnSELECTNFA.Click += new System.EventHandler(this.btnSELECTNFA_Click);
             // 
-            // comboBox1
+            // cmbNFA
             // 
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(183, 64);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 7;
+            this.cmbNFA.Enabled = false;
+            this.cmbNFA.FormattingEnabled = true;
+            this.cmbNFA.Location = new System.Drawing.Point(183, 64);
+            this.cmbNFA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbNFA.Name = "cmbNFA";
+            this.cmbNFA.Size = new System.Drawing.Size(200, 24);
+            this.cmbNFA.TabIndex = 7;
             // 
-            // ltRECORRIDO
+            // ltRECORRIDOSNFA
             // 
-            this.ltRECORRIDO.FormattingEnabled = true;
-            this.ltRECORRIDO.ItemHeight = 16;
-            this.ltRECORRIDO.Location = new System.Drawing.Point(428, 41);
-            this.ltRECORRIDO.Name = "ltRECORRIDO";
-            this.ltRECORRIDO.Size = new System.Drawing.Size(351, 228);
-            this.ltRECORRIDO.TabIndex = 8;
+            this.ltRECORRIDOSNFA.FormattingEnabled = true;
+            this.ltRECORRIDOSNFA.ItemHeight = 16;
+            this.ltRECORRIDOSNFA.Location = new System.Drawing.Point(431, 30);
+            this.ltRECORRIDOSNFA.Name = "ltRECORRIDOSNFA";
+            this.ltRECORRIDOSNFA.Size = new System.Drawing.Size(351, 228);
+            this.ltRECORRIDOSNFA.TabIndex = 12;
             // 
             // Form1
             // 
@@ -266,9 +279,10 @@
         private System.Windows.Forms.Label lblTRYNFA;
         private System.Windows.Forms.Label lblSELECTNFA;
         private System.Windows.Forms.Button btnSELECTNFA;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbNFA;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox ltRECORRIDO;
+        private System.Windows.Forms.ListBox ltRECORRIDOSNFA;
     }
 }
 
