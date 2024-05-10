@@ -9,99 +9,77 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
 {
     internal class NFA : Automaton
     {
-        
-        List<(int current, Transition destiny)> Lactual_matches = new List<(int current, Transition destiny)>();
+
+
+
         public NFA(string path) : base(path)
         {
-            
-        }
-       
-        public List<string> Verify(string Sinput)
-        {   
-            List<string> paths = new List<string>();
-            int current = BinarySearch(getLStates(), new Node(getSinitial_node(), null, false));
-            Node Nactual = getLStates()[current];
-            Lactual_matches.Add((0,new Transition("1","","1")));           
-            for (int i = 0; i < Lactual_matches.Count; i++)
-            {
-                var actualpath = Lactual_matches[i];
-                current = BinarySearch(getLStates(), new Node(actualpath.destiny.GetStateDestiny(), null, false));
-                Nactual = getLStates()[current];
-                string path = "";
-                List<(int current, Transition destiny)> temporal = AllTransitions(Nactual,Sinput, actualpath.current);
-                if (actualpath.current == Sinput.Length)
-                {
 
-                    for (int j = 1; j < Lactual_matches.Count-1; j++)
-                    {
-                        path += Lactual_matches[j].destiny.TransitionToString() + "\n";
-                        Lactual_matches.RemoveAt(j);
-                        j--;
-                        i--;
-                    }
-                    if (Nactual.GetBfinal_state()) path += "PALABRA ACEPTADA POR ESTA RUTA";
-                    else path += "PALABRA NO ACEPTADA POR ESTA RUTA";
-                    paths.Add(path);
-
-                }
-
-                if (actualpath.current != Sinput.Length)
-                {
-                    if (temporal.Count > 0)
-                    {
-                        Lactual_matches.InsertRange(i + 1, temporal);
-                    }
-                    else
-                    {
-                        for (int j = 1; j <= i; j++)
-                        {
-                            path += Lactual_matches[j].destiny.TransitionToString() + "\n";
-                            Lactual_matches.RemoveAt(j);
-                            i--;
-                            j--;
-                        }
-                        path += "PALABRA NO ACEPTADA POR ESTA RUTA";
-                        paths.Add(path);
-
-                    }
-                }
-            }
-            return paths;
         }
 
-        List<(int current, Transition destiny)> AllTransitions (Node node,string input, int current)
+        public List<string> SimulateAllPaths(string input)
         {
-            List<(int current, Transition destiny)> pathss = new List<(int current, Transition destiny)> ();
-
-            string actualinput = "";
-
-            for (int i = current; i < input.Length; i++)
-            {
-                actualinput += input[i];
-
-                for (int j = 0; j < node.GetLtransitions().Count; j++)
-                {
-                    if (node.GetLtransitions()[j].GetSymbol() == actualinput)
-                    {
-                        pathss.Add((actualinput.Length+current, node.GetLtransitions()[j]));
-                    }
-                }
-            }
-
-            if (pathss.Count == 0 || getLlanguage().Contains(""))
-            {
-                actualinput = "";
-                for (int j = 0; j < node.GetLtransitions().Count; j++)
-                {
-                    if (node.GetLtransitions()[j].GetSymbol() == "")
-                    {
-                        pathss.Add((current, node.GetLtransitions()[j]));
-                    }
-                }
-            }
-
-            return pathss;
+            List<string> results = new List<string>();
+            Dictionary<string, int> stateVisits = new Dictionary<string, int>();
+            SimulatePathRecursive(getSinitial_node(), input, "", results, stateVisits);
+            return results;
         }
+
+
+        private void SimulatePathRecursive(string currentState, string remainingInput, string currentPath, List<string> results, Dictionary<string, int> stateVisits)
+        {
+            string stateInputKey = $"{currentState}:{remainingInput}";
+            if (!stateVisits.ContainsKey(stateInputKey))
+            {
+                stateVisits[stateInputKey] = 0;
+            }
+            stateVisits[stateInputKey]++;
+
+            if (stateVisits[stateInputKey] > 3)  // Evita bucles infinitos
+            {
+                results.Add(currentPath + " -> Ciclo detectado, parando recursión");
+                return;
+            }
+
+            Node state = getLStates().FirstOrDefault(s => s.GetSname() == currentState);
+            if (state == null)
+            {
+                results.Add(currentPath + " -> Estado no encontrado");
+                return;
+            }
+
+            string newPath = currentPath + (string.IsNullOrEmpty(currentPath) ? "" : " -> ") + currentState;
+
+            if (string.IsNullOrEmpty(remainingInput))
+            {
+                results.Add(newPath + (state.GetBfinal_state() ? " -> Aceptado" : " -> Rechazado (sin entrada restante)"));
+                return;
+            }
+
+            bool foundTransition = false;
+
+            foreach (var transition in state.GetLtransitions())
+            {
+                if (!string.IsNullOrEmpty(transition.GetSymbol()) && remainingInput.StartsWith(transition.GetSymbol()))
+                {
+                    foundTransition = true;
+                    string nextInput = remainingInput.Substring(transition.GetSymbol().Length);
+                    SimulatePathRecursive(transition.GetStateDestiny(), nextInput, newPath + " -[" + transition.GetSymbol() + "]-> " + transition.GetStateDestiny(), results, stateVisits);
+                }
+                else if (string.IsNullOrEmpty(transition.GetSymbol()))
+                {
+                    foundTransition = true;
+                    SimulatePathRecursive(transition.GetStateDestiny(), remainingInput, newPath + " -[ε]-> " + transition.GetStateDestiny(), results, stateVisits);
+                }
+            }
+
+            if (!foundTransition)  // No se encontraron transiciones válidas
+            {
+                results.Add(newPath + " -> Rechazado (sin transiciones válidas para '" + remainingInput + "')");
+            }
+        }
+
+
 
     }
 }

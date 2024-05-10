@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Proyecto_Lenguajes_Formales_y_Automatas
 {
@@ -109,12 +110,45 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
         {
             ltRECORRIDOSNFA.Items.Clear();
 
-            int Icurrent_momomaton = cmbNFA.SelectedIndex;
+            int currentAutomatonIndex = cmbNFA.SelectedIndex;
 
-            NFA Nactual_nfa = nfas.ElementAt(Icurrent_momomaton);
+          
+            //nfas[0].Verify(txtWORDNFA.Text);
+            
+            if(currentAutomatonIndex == -1)
+            {
+                MessageBox.Show("Por favor, seleccione un autómata de la lista.");
+                return;
+            }
 
-            nfas[0].Verify(txtWORDNFA.Text);
-           
+            NFA currentNFA = nfas.ElementAt(currentAutomatonIndex);
+
+            if(currentNFA == null)
+            {
+                MessageBox.Show("No se encontró el autómata seleccionado.");
+                return;
+            }
+
+            // Usa el método SimulateAllPaths para obtener todos los caminos posibles para la cadena de entrada
+            List<string> results = currentNFA.SimulateAllPaths(txtWORDNFA.Text);
+
+            // Agrega cada resultado al ListBox, formateando las transiciones en una sola línea
+            foreach (var result in results)
+            {
+                // Dividir cada parte de la transición y reconstruir en formato compacto
+                string[] transitions = result.Split(new string[] { "->" }, StringSplitOptions.RemoveEmptyEntries);
+                StringBuilder formattedResult = new StringBuilder();
+                foreach (var transition in transitions)
+                {
+                    if (!string.IsNullOrEmpty(formattedResult.ToString()))
+                    {
+                        formattedResult.Append(" -> ");
+                    }
+                    formattedResult.Append(transition.Trim());
+                }
+                ltRECORRIDOSNFA.Items.Add(formattedResult.ToString());
+            }
+
         }
     }
 }
