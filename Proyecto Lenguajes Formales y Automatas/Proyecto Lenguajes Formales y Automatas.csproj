@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -99,7 +99,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Bateria de Pruebas\Bateria De Pruebas AFD SACMCAMPPR.pdf" />
+    <None Include="BateriaPruebasAFD\Bateria De Pruebas AFD VF.pdf" />
+    <None Include="BateriaPruebasAFN\Batería de pruebas AFN VF.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -114,16 +115,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Bateria de Pruebas\Automata1.txt" />
-    <Content Include="Bateria de Pruebas\Automata2.txt" />
-    <Content Include="Bateria de Pruebas\Automata3.txt" />
-    <Content Include="Bateria de Pruebas\Automata4.txt" />
-    <Content Include="Bateria de Pruebas\Automata5.txt" />
+    <Content Include="BateriaPruebasAFD\Automata1.txt" />
+    <Content Include="BateriaPruebasAFD\Automata2.txt" />
+    <Content Include="BateriaPruebasAFD\Automata3.txt" />
+    <Content Include="BateriaPruebasAFD\Automata4.txt" />
+    <Content Include="BateriaPruebasAFD\Automata5.txt" />
+    <Content Include="BateriaPruebasAFN\AFN1.txt" />
+    <Content Include="BateriaPruebasAFN\AFN2.txt" />
+    <Content Include="BateriaPruebasAFN\AFN3.txt" />
+    <Content Include="BateriaPruebasAFN\AFN4.txt" />
+    <Content Include="BateriaPruebasAFN\AFN5.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
