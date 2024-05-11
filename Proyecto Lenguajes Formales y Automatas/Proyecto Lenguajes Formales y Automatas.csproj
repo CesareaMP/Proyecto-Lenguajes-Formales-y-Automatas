@@ -101,6 +101,8 @@
     </Compile>
     <None Include="BateriaPruebasAFD\Bateria De Pruebas AFD VF.pdf" />
     <None Include="BateriaPruebasAFN\Batería de pruebas AFN VF.pdf" />
+    <None Include="BateriaPruebasAFN\entrega4LFYA.rar" />
+    <None Include="BateriaPruebasAFN\ManualDeUsuario_Entrega4_CMSCPR.pdf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

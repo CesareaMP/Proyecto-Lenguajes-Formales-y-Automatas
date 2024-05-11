@@ -135,18 +135,8 @@ namespace Proyecto_Lenguajes_Formales_y_Automatas
             // Agrega cada resultado al ListBox, formateando las transiciones en una sola línea
             foreach (var result in results)
             {
-                // Dividir cada parte de la transición y reconstruir en formato compacto
-                string[] transitions = result.Split(new string[] { "->" }, StringSplitOptions.RemoveEmptyEntries);
-                StringBuilder formattedResult = new StringBuilder();
-                foreach (var transition in transitions)
-                {
-                    if (!string.IsNullOrEmpty(formattedResult.ToString()))
-                    {
-                        formattedResult.Append(" -> ");
-                    }
-                    formattedResult.Append(transition.Trim());
-                }
-                ltRECORRIDOSNFA.Items.Add(formattedResult.ToString());
+                
+                ltRECORRIDOSNFA.Items.Add(result);
             }
 
         }
